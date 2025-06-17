@@ -11,20 +11,20 @@
     <name>My Web App</name>
     <description>Java 17 Jenkins Plugin Project</description>
 
-    <!-- Jenkins BOM for dependency management -->
+    <!-- Jenkins BOM with stable version -->
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>jenkins.tools.bom</groupId>
-                <artifactId>bom-2.426.2.x</artifactId>
-                <version>4924.v6b_eb_a_79a_d9d0</version>
+                <groupId>io.jenkins.tools.bom</groupId>
+                <artifactId>bom</artifactId>
+                <version>2.426.2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
-    <!-- Add Jenkins repository to resolve BOM -->
+    <!-- Jenkins repository -->
     <repositories>
         <repository>
             <id>jenkins-releases</id>
@@ -32,20 +32,19 @@
         </repository>
     </repositories>
 
-    <!-- Project dependencies -->
+    <!-- Dependencies -->
     <dependencies>
-        <!-- Example Jenkins plugin dependency -->
+        <!-- Git plugin with version -->
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>git</artifactId>
+            <version>5.2.1</version>
         </dependency>
-        
-        <!-- Add your other dependencies here -->
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Compiler plugin configured for Java 17 -->
+            <!-- Java 17 compiler -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -55,7 +54,7 @@
                 </configuration>
             </plugin>
 
-            <!-- WAR plugin if needed -->
+            <!-- WAR plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
