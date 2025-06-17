@@ -9,9 +9,9 @@
     <packaging>war</packaging>
 
     <name>My Web App</name>
-    <description>Example project using Jenkins BOM</description>
+    <description>Java 17 Jenkins Plugin Project</description>
 
-    <!-- Use the Jenkins BOM to manage plugin versions -->
+    <!-- Jenkins BOM for dependency management -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -24,17 +24,7 @@
         </dependencies>
     </dependencyManagement>
 
-    <!-- Dependencies section -->
-    <dependencies>
-        <!-- Example: Jenkins Plugin dependency -->
-        <dependency>
-            <groupId>org.jenkins-ci.plugins</groupId>
-            <artifactId>git</artifactId>
-        </dependency>
-        <!-- Add your project-specific dependencies here -->
-    </dependencies>
-
-    <!-- Jenkins repository so Maven can download the BOM -->
+    <!-- Add Jenkins repository to resolve BOM -->
     <repositories>
         <repository>
             <id>jenkins-releases</id>
@@ -42,16 +32,34 @@
         </repository>
     </repositories>
 
+    <!-- Project dependencies -->
+    <dependencies>
+        <!-- Example Jenkins plugin dependency -->
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>git</artifactId>
+        </dependency>
+        
+        <!-- Add your other dependencies here -->
+    </dependencies>
+
     <build>
         <plugins>
+            <!-- Compiler plugin configured for Java 17 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <release>17</release>
                 </configuration>
+            </plugin>
+
+            <!-- WAR plugin if needed -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
             </plugin>
         </plugins>
     </build>
